@@ -1,0 +1,36 @@
+spring:
+  kafka:
+    bootstrapAddress: localhost:9092
+    consumer:
+      auto-offset-reset: earliest
+      group-id: consumer-group
+    sasl:
+      enabled: true
+      producer:
+        username: fps
+        password: fps_pwd
+      consumer:
+        username: fps
+        password: fps_pwd
+    ssl:
+      enabled: false
+      producer:
+        truststore:
+          location: file:/tmp/kafka-ssl-demo/client.truststore
+          password: 123456
+        keystore:
+          location: file:/tmp/kafka-ssl-demo/producer.keystore
+          password: 123456
+        key:
+          password: 123456
+      consumer:
+        truststore:
+          location: file:/tmp/kafka-ssl-demo/client.truststore
+          password: 123456
+        keystore:
+          location: file:/tmp/kafka-ssl-demo/consumer.keystore
+          password: 123456
+        key:
+          password: 123456
+demo:
+  topic: fps-topic-1
